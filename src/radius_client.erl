@@ -173,7 +173,7 @@ handle_call({send, SrvID, {Type, ORI, Attrs}}, From, State) ->
             {reply, {error, bad_server_id}, State}
     end;
 
-handle_call(Message, From, State) -> 
+handle_call(_Message, _From, State) -> 
     {reply, error, State}.
 
 stop() ->
@@ -188,7 +188,7 @@ terminate(normal, _State) ->
 handle_cast(stop, State) ->
     {stop, normal, State};
 
-handle_cast(Message, Dictionary) -> 
+handle_cast(_Message, Dictionary) -> 
     {noreply, Dictionary}.
 
 handle_info({reqtimeout, Key, Seq}, State) -> %request timeout
@@ -249,7 +249,7 @@ handle_info({udp, _, SrcIP, SrcPort, Data}, State) -> %response
             {noreply, State}
     end;
 
-handle_info(Message, Dictionary) -> 
+handle_info(_Message, Dictionary) -> 
     {noreply, Dictionary}.
 
 code_change(_OldVersion, Dictionary, _Extra) -> {ok, Dictionary}.
