@@ -1,0 +1,8 @@
+{application, radclient,
+ [
+  {description, "radclient"},
+  {vsn, "1.0"},
+  {id, "radclient"},
+  {modules,      []},
+  {registered,   []}
+]}. %%application
